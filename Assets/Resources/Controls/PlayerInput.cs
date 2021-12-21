@@ -128,7 +128,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             ""id"": ""edb7f26c-4bd7-43af-97c2-44e2cb324c91"",
             ""actions"": [
                 {
-                    ""name"": ""Front Left"",
+                    ""name"": ""FrontLeft"",
                     ""type"": ""Value"",
                     ""id"": ""cdca24a1-ee35-451c-8c27-e43d75654434"",
                     ""expectedControlType"": ""Vector2"",
@@ -136,7 +136,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Front Right"",
+                    ""name"": ""FrontRight"",
                     ""type"": ""Value"",
                     ""id"": ""4b6f13b4-1517-48ab-b4e8-ba39e00840a3"",
                     ""expectedControlType"": ""Vector2"",
@@ -144,7 +144,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Rear Left"",
+                    ""name"": ""RearLeft"",
                     ""type"": ""Value"",
                     ""id"": ""69f706f1-6c9d-41b2-bc3c-aa1dccbbab50"",
                     ""expectedControlType"": ""Vector2"",
@@ -152,7 +152,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Rear Right"",
+                    ""name"": ""RearRight"",
                     ""type"": ""Value"",
                     ""id"": ""7eb86670-65ac-405a-be15-f8d6f8d3f652"",
                     ""expectedControlType"": ""Vector2"",
@@ -164,11 +164,11 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""36e51084-1f2a-47b7-985d-8b9a938d41ce"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Left"",
+                    ""action"": ""FrontLeft"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -179,7 +179,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Left"",
+                    ""action"": ""FrontLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -190,7 +190,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Left"",
+                    ""action"": ""FrontLeft"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -201,18 +201,18 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Left"",
+                    ""action"": ""FrontLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""e1710a7b-5ae7-4914-8c2e-b592ab68b229"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Right"",
+                    ""action"": ""FrontRight"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -223,7 +223,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Right"",
+                    ""action"": ""FrontRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -234,7 +234,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Right"",
+                    ""action"": ""FrontRight"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -245,7 +245,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Front Right"",
+                    ""action"": ""FrontRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -256,7 +256,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rear Left"",
+                    ""action"": ""RearLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -267,7 +267,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rear Left"",
+                    ""action"": ""RearLeft"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -278,7 +278,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rear Left"",
+                    ""action"": ""RearLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -289,7 +289,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rear Right"",
+                    ""action"": ""RearRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -300,7 +300,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rear Right"",
+                    ""action"": ""RearRight"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -311,7 +311,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rear Right"",
+                    ""action"": ""RearRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -327,10 +327,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
-        m_Drone_FrontLeft = m_Drone.FindAction("Front Left", throwIfNotFound: true);
-        m_Drone_FrontRight = m_Drone.FindAction("Front Right", throwIfNotFound: true);
-        m_Drone_RearLeft = m_Drone.FindAction("Rear Left", throwIfNotFound: true);
-        m_Drone_RearRight = m_Drone.FindAction("Rear Right", throwIfNotFound: true);
+        m_Drone_FrontLeft = m_Drone.FindAction("FrontLeft", throwIfNotFound: true);
+        m_Drone_FrontRight = m_Drone.FindAction("FrontRight", throwIfNotFound: true);
+        m_Drone_RearLeft = m_Drone.FindAction("RearLeft", throwIfNotFound: true);
+        m_Drone_RearRight = m_Drone.FindAction("RearRight", throwIfNotFound: true);
     }
 
     public void Dispose()
