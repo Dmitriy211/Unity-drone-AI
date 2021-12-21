@@ -316,6 +316,71 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""DroneAxis"",
+            ""id"": ""8ad8f27c-6a06-4c8e-ba16-c3a5cf79a643"",
+            ""actions"": [
+                {
+                    ""name"": ""Thrust"",
+                    ""type"": ""Value"",
+                    ""id"": ""e724745f-56e3-4d71-a511-ce675bf2a3ad"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PitchRoll"",
+                    ""type"": ""Value"",
+                    ""id"": ""d160ea0e-a32a-4ddd-941a-bb44398f5a09"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Yaw"",
+                    ""type"": ""Value"",
+                    ""id"": ""c91b6b12-7aa6-415f-a471-8adefdace125"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""be9b3833-2aec-4507-85c6-d23c65605c42"",
+                    ""path"": ""*/{SecondaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Thrust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b98e5a2a-018f-4366-855b-6ba6207bc31c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PitchRoll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77afa406-d2fe-4a76-8cf2-10e5684f9d6d"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -331,6 +396,11 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Drone_FrontRight = m_Drone.FindAction("FrontRight", throwIfNotFound: true);
         m_Drone_RearLeft = m_Drone.FindAction("RearLeft", throwIfNotFound: true);
         m_Drone_RearRight = m_Drone.FindAction("RearRight", throwIfNotFound: true);
+        // DroneAxis
+        m_DroneAxis = asset.FindActionMap("DroneAxis", throwIfNotFound: true);
+        m_DroneAxis_Thrust = m_DroneAxis.FindAction("Thrust", throwIfNotFound: true);
+        m_DroneAxis_PitchRoll = m_DroneAxis.FindAction("PitchRoll", throwIfNotFound: true);
+        m_DroneAxis_Yaw = m_DroneAxis.FindAction("Yaw", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -482,6 +552,55 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         }
     }
     public DroneActions @Drone => new DroneActions(this);
+
+    // DroneAxis
+    private readonly InputActionMap m_DroneAxis;
+    private IDroneAxisActions m_DroneAxisActionsCallbackInterface;
+    private readonly InputAction m_DroneAxis_Thrust;
+    private readonly InputAction m_DroneAxis_PitchRoll;
+    private readonly InputAction m_DroneAxis_Yaw;
+    public struct DroneAxisActions
+    {
+        private @PlayerInput m_Wrapper;
+        public DroneAxisActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Thrust => m_Wrapper.m_DroneAxis_Thrust;
+        public InputAction @PitchRoll => m_Wrapper.m_DroneAxis_PitchRoll;
+        public InputAction @Yaw => m_Wrapper.m_DroneAxis_Yaw;
+        public InputActionMap Get() { return m_Wrapper.m_DroneAxis; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DroneAxisActions set) { return set.Get(); }
+        public void SetCallbacks(IDroneAxisActions instance)
+        {
+            if (m_Wrapper.m_DroneAxisActionsCallbackInterface != null)
+            {
+                @Thrust.started -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnThrust;
+                @Thrust.performed -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnThrust;
+                @Thrust.canceled -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnThrust;
+                @PitchRoll.started -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnPitchRoll;
+                @PitchRoll.performed -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnPitchRoll;
+                @PitchRoll.canceled -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnPitchRoll;
+                @Yaw.started -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnYaw;
+                @Yaw.performed -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnYaw;
+                @Yaw.canceled -= m_Wrapper.m_DroneAxisActionsCallbackInterface.OnYaw;
+            }
+            m_Wrapper.m_DroneAxisActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Thrust.started += instance.OnThrust;
+                @Thrust.performed += instance.OnThrust;
+                @Thrust.canceled += instance.OnThrust;
+                @PitchRoll.started += instance.OnPitchRoll;
+                @PitchRoll.performed += instance.OnPitchRoll;
+                @PitchRoll.canceled += instance.OnPitchRoll;
+                @Yaw.started += instance.OnYaw;
+                @Yaw.performed += instance.OnYaw;
+                @Yaw.canceled += instance.OnYaw;
+            }
+        }
+    }
+    public DroneAxisActions @DroneAxis => new DroneAxisActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -494,5 +613,11 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnFrontRight(InputAction.CallbackContext context);
         void OnRearLeft(InputAction.CallbackContext context);
         void OnRearRight(InputAction.CallbackContext context);
+    }
+    public interface IDroneAxisActions
+    {
+        void OnThrust(InputAction.CallbackContext context);
+        void OnPitchRoll(InputAction.CallbackContext context);
+        void OnYaw(InputAction.CallbackContext context);
     }
 }

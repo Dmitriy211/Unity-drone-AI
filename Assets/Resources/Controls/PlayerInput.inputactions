@@ -303,6 +303,71 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "DroneAxis",
+            "id": "8ad8f27c-6a06-4c8e-ba16-c3a5cf79a643",
+            "actions": [
+                {
+                    "name": "Thrust",
+                    "type": "Value",
+                    "id": "e724745f-56e3-4d71-a511-ce675bf2a3ad",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PitchRoll",
+                    "type": "Value",
+                    "id": "d160ea0e-a32a-4ddd-941a-bb44398f5a09",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Yaw",
+                    "type": "Value",
+                    "id": "c91b6b12-7aa6-415f-a471-8adefdace125",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be9b3833-2aec-4507-85c6-d23c65605c42",
+                    "path": "*/{SecondaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b98e5a2a-018f-4366-855b-6ba6207bc31c",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PitchRoll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77afa406-d2fe-4a76-8cf2-10e5684f9d6d",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

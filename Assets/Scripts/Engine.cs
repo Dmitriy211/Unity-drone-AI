@@ -22,6 +22,11 @@ public class Engine : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ApplyRotorForce();
+    }
+
+    private void ApplyRotorForce()
+    {
         float force = Power.Remap(0, 1, 0, _maxForce);
         float torque = Power.Remap(0, 1, 0, _maxTorque);
         

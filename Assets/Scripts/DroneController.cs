@@ -33,7 +33,13 @@ public class DroneController : MonoBehaviour
 
     public void SetEnginePower(string name, float power)
     {
+        if (power < 0) return;
         _engines.First(e => e.Name == name).Power = power;
+    }
+    
+    public float GetEnginePower(string name)
+    {
+        return _engines.First(e => e.Name == name).Power;
     }
     
     private void MoveFrontLeft(InputAction.CallbackContext inputContext) =>
@@ -53,5 +59,7 @@ public class DroneController : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
         transform.position = _resetTransform.position;
         transform.rotation = _resetTransform.rotation;
+
+        foreach (var e in _engines) e.Power = 0;
     }
 }
